@@ -1,6 +1,6 @@
 # SQL-learning
 
-### 1. manipulation [cheatsheet](https://www.codecademy.com/learn/learn-sql/modules/learn-sql-manipulation/cheatsheet)
+## 1. manipulation [cheatsheet](https://www.codecademy.com/learn/learn-sql/modules/learn-sql-manipulation/cheatsheet)
 
 1. CREATE TABLE creates a new table.
 2. INSERT INTO adds a new row to a table.
