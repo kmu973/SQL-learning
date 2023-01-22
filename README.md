@@ -8,3 +8,6 @@
 4. **ALTER TABLE** changes an existing table.
 5. **UPDATE** edits a row in a table.
 6. **DELETE FROM** deletes rows from a table.
+
+## 2. query [cheatsheet](https://www.codecademy.com/learn/learn-sql/modules/learn-sql-queries/cheatsheet)
+
