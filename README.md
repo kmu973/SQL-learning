@@ -34,9 +34,9 @@
 ## 1. manipulation [cheatsheet](https://www.codecademy.com/learn/learn-sql/modules/learn-sql-manipulation/cheatsheet)
 
 1. **CREATE TABLE** creates a new table
-##
-(https://www.postgresql.org/docs/current/sql-createtable.html)
+("https://www.postgresql.org/docs/current/sql-createtable.html")
 ("https://www.postgresql.org/docs/current/sql-copy.html")
+
 ```
 DROP TABLE IF EXISTS indego_stations;
 
@@ -53,6 +53,20 @@ FROM '...path to file goes here...'
 WITH (FORMAT csv, HEADER true);
 
 ```
+
+Quick Tabular data cleaning 
+- csvkit : csvsql
+```
+csvsql \
+  --db postgresql://postgres:postgres@localhost:5432/musa_509 \
+  --tables csvkit_indego_stations \
+  --create-if-not-exists \
+  --insert \
+  --overwrite \
+  data/indego_stations.csv
+```
+- python Pandas
+- R
 
 3. **INSERT INTO** adds a new row to a table.
 4. **SELECT** queries data from a table.
