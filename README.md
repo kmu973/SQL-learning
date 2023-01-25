@@ -28,6 +28,8 @@
 
 # ■ PostGIS
     - tool built on PostgreSQL platform
+    - https://postgis.net/workshops/postgis-intro/
+    - https://postgis.net/docs/reference.html#Geometry_Processing
 
 # ■ SQL-learning
 
