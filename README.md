@@ -31,13 +31,11 @@
 
 # ■ SQL-learning : PostgreSQL
 
-    - DDL
-    - DML
-
 ## 1. manipulation [cheatsheet](https://www.codecademy.com/learn/learn-sql/modules/learn-sql-manipulation/cheatsheet)
 
-1. **CREATE TABLE** creates a new table (https://www.postgresql.org/docs/current/sql-createtable.html)
-
+1. **CREATE TABLE** creates a new table 
+(https://www.postgresql.org/docs/current/sql-createtable.html)
+("https://www.postgresql.org/docs/current/sql-copy.html")
 ```
 DROP TABLE IF EXISTS indego_stations;
 
@@ -48,6 +46,11 @@ CREATE TABLE indego_stations
   go_live_date DATE,
   status       TEXT
 );
+
+COPY indego_stations
+FROM '...path to file goes here...'
+WITH (FORMAT csv, HEADER true);
+
 ```
 
 3. **INSERT INTO** adds a new row to a table.
