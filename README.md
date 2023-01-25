@@ -1,3 +1,14 @@
+# Database
+
+## 1. NoSQL
+ 1. Key-Value 
+    - like a dictionary
+    - Redis, Memcahced
+ 2 
+
+## 2. SQL
+
+
 # SQL-learning
 
 ## 1. manipulation [cheatsheet](https://www.codecademy.com/learn/learn-sql/modules/learn-sql-manipulation/cheatsheet)
@@ -20,3 +31,8 @@
 7. **ORDER BY** sorts the result.
 8. **LIMIT** specifies the maximum number of rows that the query will return.
 9. **CASE** creates different outputs.
+
+
+``
+
+``
