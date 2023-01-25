@@ -1,4 +1,4 @@
-# Database
+# ■ Database
 
 ## 1. NoSQL
 
@@ -22,14 +22,14 @@
     - MySQL, **PostgreSQL**
     - Not meaning relational btw data
     
-# PostgreSQL
+# ■ PostgreSQL
     - Server hosting database
     - Client : PGAdim, Postico, QGIS, ogr2ogr
 
-# PostGIS
+# ■ PostGIS
     - tool built on PostgreSQL platform
 
-# SQL-learning : PostgreSQL
+# ■ SQL-learning : PostgreSQL
 
     - DDL
     - DML
