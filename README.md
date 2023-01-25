@@ -23,23 +23,38 @@
     - Not meaning relational btw data
     
 # PostgreSQL
+    - Server hosting database
+    - Client : PGAdim, Postico, QGIS, ogr2ogr
 
-```
-ASDASD
-```
+# PostGIS
+    - tool built on PostgreSQL platform
 
+# SQL-learning : PostgreSQL
 
-
-# SQL-learning
+    - DDL
+    - DML
 
 ## 1. manipulation [cheatsheet](https://www.codecademy.com/learn/learn-sql/modules/learn-sql-manipulation/cheatsheet)
 
 1. **CREATE TABLE** creates a new table.
-2. **INSERT INTO** adds a new row to a table.
-3. **SELECT** queries data from a table.
-4. **ALTER TABLE** changes an existing table.
-5. **UPDATE** edits a row in a table.
-6. **DELETE FROM** deletes rows from a table.
+
+```
+DROP TABLE IF EXISTS indego_stations;
+
+CREATE TABLE indego_stations
+(
+  id           INTEGER,
+  name         TEXT,
+  go_live_date DATE,
+  status       TEXT
+);
+```
+
+3. **INSERT INTO** adds a new row to a table.
+4. **SELECT** queries data from a table.
+5. **ALTER TABLE** changes an existing table.
+6. **UPDATE** edits a row in a table.
+7. **DELETE FROM** deletes rows from a table.
 
 ## 2. query [cheatsheet](https://www.codecademy.com/learn/learn-sql/modules/learn-sql-queries/cheatsheet)
 
