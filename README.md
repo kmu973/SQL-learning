@@ -27,9 +27,10 @@
     - Client : PGAdim, Postico, QGIS, ogr2ogr
 
 # ■ PostGIS
-    - tool built on PostgreSQL platform
-    - https://postgis.net/workshops/postgis-intro/
-    - https://postgis.net/docs/reference.html#Geometry_Processing
+- https://postgis.net/workshops/postgis-intro/
+- https://postgis.net/docs/reference.html#Geometry_Processing
+- tool built on PostgreSQL platform
+
 
 # ■ SQL-learning
 
