@@ -1,12 +1,33 @@
 # Database
 
 ## 1. NoSQL
- 1. Key-Value 
-    - like a dictionary
-    - Redis, Memcahced
- 2 
 
+ ### 1. Key-Value 
+    - like a dictionary
+    - much faster than normal SQL data, using user profile dataset and caching it
+    - Redis, Memcahced
+    
+ ### 2. Document
+    - semi-structured documents 
+    - dictionary but having you can search verb, noun, adj...
+    - MongoDB
+    
+ ### 3. Graph
+    - Neo4j, TAO
+    - optimized to query relations btw data
+    
 ## 2. SQL
+
+ ### 1. Relational 
+    - MySQL, **PostgreSQL**
+    - Not meaning relational btw data
+    
+# PostgreSQL
+
+```
+ASDASD
+```
+
 
 
 # SQL-learning
