@@ -33,7 +33,7 @@
 
 ## 1. manipulation [cheatsheet](https://www.codecademy.com/learn/learn-sql/modules/learn-sql-manipulation/cheatsheet)
 
-1. **CREATE TABLE** creates a new table__ 
+1. **CREATE TABLE** creates a new table\ 
 (https://www.postgresql.org/docs/current/sql-createtable.html)
 ("https://www.postgresql.org/docs/current/sql-copy.html")
 ```
