@@ -54,9 +54,9 @@ WITH (FORMAT csv, HEADER true);
 
 ```
 
-Quick Tabular data cleaning 
+**Quick Tabular data cleaning **
+
 - csvkit : csvsql
-```
 csvsql \
   --db postgresql://postgres:postgres@localhost:5432/musa_509 \
   --tables csvkit_indego_stations \
@@ -64,8 +64,20 @@ csvsql \
   --insert \
   --overwrite \
   data/indego_stations.csv
-```
+
 - python Pandas
+import pandas as pd
+df = pd.read_csv('data/indego_stations.csv')
+USERNAME = 'postgres'
+PASSWORD = 'postgres'
+DATABASE = 'musa_509'
+df.to_sql(
+    'indego_stations',
+    f'postgresql://{USERNAME}:{PASSWORD}@localhost:5432/{DATABASE}',
+    if_exists='replace',
+    index=False,
+)
+
 - R
 
 3. **INSERT INTO** adds a new row to a table.
