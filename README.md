@@ -55,8 +55,8 @@
 # ■ PostgreSQL
 
 ## 1. Loading Tabular data Files
-("https://www.postgresql.org/docs/current/sql-createtable.html")
-("https://www.postgresql.org/docs/current/sql-copy.html")
+(https://www.postgresql.org/docs/current/sql-createtable.html)
+(https://www.postgresql.org/docs/current/sql-copy.html)
 
 ```
 DROP TABLE IF EXISTS indego_stations;
