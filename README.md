@@ -122,9 +122,47 @@ dbWriteTable(con,
 
 ## 2. Loading Spatial data Files
 
-- GDAL
-- 
+- **ogr2ogr**
+(https://gdal.org/programs/ogr2ogr.html)
+(https://gdal.org/drivers/vector/pg.html#vector-pg)
+(https://morphocode.com/using-ogr2ogr-convert-data-formats-geojson-postgis-esri-geodatabase-shapefiles/)
+"driver" determine the types of formats
+```
+ogr2ogr \
+  -f "PostgreSQL" \
+  -nln "indego_station_statuses" \
+  -lco "OVERWRITE=yes" \
+  -lco "GEOM_TYPE=geography" \
+  -lco "GEOMETRY_NAME=the_geog" \
+  PG:"host=localhost port=5432 dbname=musa_509 user=postgres password=postgres" \
+  "data/indego_station_statuses.geojson"
+```
 
-``
+- **QGIS**
+(https://www.crunchydata.com/blog/loading-data-into-postgis-an-overview)
+QGIS don't like nested array(?)
 
-``
+- **python Pandas**
+```
+import geopandas as gpd
+import sqlalchemy as sqa
+
+# Load the shp into a DataFrame.
+df = gpd.read_file('data/indego_station_statuses.geojson')
+
+# Load the DataFrame into the database.
+USERNAME = 'postgres'
+PASSWORD = 'postgres'
+DATABASE = 'musa_509'
+
+engine = sqa.create_engine(
+    f'postgresql://{USERNAME}:{PASSWORD}@localhost:5432/{DATABASE}'
+)
+df.to_postgis(
+    'pandas_indego_station_statuses',
+    engine,
+    if_exists='replace',
+    index=False,
+)
+```
+- **R**
