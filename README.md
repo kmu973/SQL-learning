@@ -36,7 +36,7 @@
 
 ## 1. manipulation [cheatsheet](https://www.codecademy.com/learn/learn-sql/modules/learn-sql-manipulation/cheatsheet)
 
-1. **CREATE TABLE** creates a new table.
+1. [**CREATE TABLE**]("https://www.postgresql.org/docs/current/sql-createtable.html") creates a new table.
 
 ```
 DROP TABLE IF EXISTS indego_stations;
