@@ -43,6 +43,45 @@
 6. **UPDATE** edits a row in a table.
 7. **DELETE FROM** deletes rows from a table.
 
+```
+-- CREATE TABLE
+CREATE TABLE friends (
+  id INTEGER,
+  name TEXT,
+  birthday DATE
+);
+
+-- INSERT INFO
+INSERT INTO friends
+VALUES (1,'PARK', '1992-07-08');
+
+INSERT INTO friends
+VALUES (2,'MIN', '1991-05-20');
+
+INSERT INTO friends
+VALUES (3,'BIDEN', '1942-11-20');
+
+-- UPDATE INFO
+UPDATE friends
+SET name = "SON"
+WHERE id = 1;
+
+-- ADD COLUMN
+ALTER TABLE friends
+ADD COLUMN email TEXT;
+
+UPDATE friends
+SET email = "unkown@gmail.com"
+WHERE id = 1;
+
+DELETE FROM friends
+WHERE id = 2;
+
+SELECT * FROM friends;
+
+
+```
+
 ## 2. query [cheatsheet](https://www.codecademy.com/learn/learn-sql/modules/learn-sql-queries/cheatsheet)
 
 1. **SELECT** is the clause we use every time we want to query information from a database.
