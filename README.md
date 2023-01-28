@@ -156,6 +156,12 @@ FROM nomnom;
 6. **GROUP BY** is a clause used with aggregate functions to combine data from one or more columns.
 7. **HAVING** limit the results of a query based on an aggregate property.
 
+
+## 4. MULTIPLE [cheatsheet](https://www.codecademy.com/learn/learn-sql/modules/learn-sql-multiple-tables/cheatsheet)
+
+
+
+
 # ■ PostgreSQL
 
 ## 1. Loading Tabular data Files
