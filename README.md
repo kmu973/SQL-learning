@@ -153,6 +153,8 @@ FROM nomnom;
 3. **MAX()/MIN()**: the largest/smallest value
 4. **AVG()**: the average of the values in a column
 5. **ROUND()**: round the values in the column
+6. **GROUP BY** is a clause used with aggregate functions to combine data from one or more columns.
+7. **HAVING** limit the results of a query based on an aggregate property.
 
 # ■ PostgreSQL
 
