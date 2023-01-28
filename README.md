@@ -146,7 +146,7 @@ SELECT name,
 FROM nomnom;
 
 ```
-## 3. AGGREGATE [cheatsheet](https://www.codecademy.com/learn/learn-sql/modules/learn-sql-queries/cheatsheet](https://www.codecademy.com/learn/learn-sql/modules/learn-sql-aggregate-functions/cheatsheet)
+## 3. AGGREGATE [cheatsheet](https://www.codecademy.com/learn/learn-sql/modules/learn-sql-aggregate-functions/cheatsheet)
 
 1. **COUNT()**: count the number of rows
 2. **SUM()**: the sum of the values in a column
