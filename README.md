@@ -34,7 +34,7 @@
 
 # ■ SQL-learning
 
-## 1. manipulation [cheatsheet](https://www.codecademy.com/learn/learn-sql/modules/learn-sql-manipulation/cheatsheet)
+## 1. MANIPULATION [cheatsheet](https://www.codecademy.com/learn/learn-sql/modules/learn-sql-manipulation/cheatsheet)
 
 1. **CREATE TABLE** creates a new table
 3. **INSERT INTO** adds a new row to a table.
@@ -82,7 +82,7 @@ SELECT * FROM friends;
 
 ```
 
-## 2. query [cheatsheet](https://www.codecademy.com/learn/learn-sql/modules/learn-sql-queries/cheatsheet)
+## 2. QUERY [cheatsheet](https://www.codecademy.com/learn/learn-sql/modules/learn-sql-queries/cheatsheet)
 
 1. **SELECT** is the clause we use every time we want to query information from a database.
 2. **AS** renames a column or table.
@@ -145,10 +145,14 @@ SELECT name,
   END AS 'Review'
 FROM nomnom;
 
-
-
-
 ```
+## 3. AGGREGATE [cheatsheet](https://www.codecademy.com/learn/learn-sql/modules/learn-sql-queries/cheatsheet](https://www.codecademy.com/learn/learn-sql/modules/learn-sql-aggregate-functions/cheatsheet)
+
+1. **COUNT()**: count the number of rows
+2. **SUM()**: the sum of the values in a column
+3. **MAX()/MIN()**: the largest/smallest value
+4. **AVG()**: the average of the values in a column
+5. **ROUND()**: round the values in the column
 
 # ■ PostgreSQL
 
