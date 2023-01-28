@@ -159,7 +159,13 @@ FROM nomnom;
 
 ## 4. MULTIPLE [cheatsheet](https://www.codecademy.com/learn/learn-sql/modules/learn-sql-multiple-tables/cheatsheet)
 
-
+1. **JOIN** will combine rows from different tables if the join condition is true.
+2. **LEFT JOIN** will return every row in the left table, and if the join condition is not met, NULL values are used to fill in the columns from the right table.
+3. **Primary key** is a column that serves a unique identifier for the rows in the table.
+4. **Foreign key** is a column that contains the primary key to another table.
+5. **CROSS JOIN** lets us combine all rows of one table with all rows of another table.
+6. **UNION** stacks one dataset on top of another.
+7. **WITH** allows us to define one or more temporary tables that can be used in the final query.
 
 
 # ■ PostgreSQL
