@@ -296,7 +296,7 @@ df.to_postgis(
 
 ---
 
-**PostgreSQL Data Types, a sampling**
+## PostgreSQL Data Types, a sampling
 
 | Data Type | Example |
 |---|---|
@@ -312,8 +312,18 @@ df.to_postgis(
 - Numbers (integers, floating point numbers) - `+`, `-`, `AVG`, `SUM`, `CORR`
 - Text - `STRING_AGG`, `||` (concatenate), `LIKE`, substrings, etc.
 - Date/time - `-` (intervals), `EXTRACT` date parts, timezone conversion
+  ```
+  select extract (year from '2021-12-04'::date)
+  select extract (month from '2021-12-04'::date)
+  select extract (quarter from '2021-12-04'::date)
+  
+  ```
 
-**cast** (_v._) - Convert a value from one data type to another.
+
+
+
+
+## cast Convert a value from one data type to another
 
 ```sql
 SELECT CAST('121' AS integer);
