@@ -296,6 +296,23 @@ df.to_postgis(
 
 ---
 
+**PostgreSQL Data Types, a sampling**
+
+| Data Type | Example |
+|---|---|
+| Boolean | `true`, `false`, `null` |
+| Numbers | `1`, `3.1415`, `-1.2e-7`, `null` |
+| Text | `‘Musa’`, `‘a’`, `‘1234’`, `null` |
+| Date/time (timestamp/time with/without time zone, date, interval) | `‘2020-09-08’::date` <br> `to_timestamp(1599572175)` <br> `Interval ‘4 days 3 hours 13 seconds’` |
+| Money | `$10`, `¥10`, `€10`, `null` |
+| Arrays of any type | `[1, 2, 3, 4]`, `[‘banana’, ‘orange’, ‘apple’]`, `null` |
+| JSON (as JSONB) | `{‘a’: 1, ‘b’: 2, …}`, `null` |
+
+- Boolean - `AND`, `OR`
+- Numbers (integers, floating point numbers) - `+`, `-`, `AVG`, `SUM`, `CORR`
+- Text - `STRING_AGG`, `||` (concatenate), `LIKE`, substrings, etc.
+- Date/time - `-` (intervals), `EXTRACT` date parts, timezone conversion
+
 **cast** (_v._) - Convert a value from one data type to another.
 
 ```sql
