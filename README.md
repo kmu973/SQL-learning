@@ -315,21 +315,40 @@ df.to_postgis(
   ```
   select extract (year from '2021-12-04'::date)
   select extract (month from '2021-12-04'::date)
-  select extract (quarter from '2021-12-04'::date)
-  
+  select extract (quarter from '2021-12-04'::date)  
   ```
-
-
-
-
+---
 
 ## cast Convert a value from one data type to another
 
-```sql
+```
 SELECT CAST('121' AS integer);
-
 SELECT CAST(121 AS text);
-
 SELECT CAST('SRID=4326;POINT(-75.16 39.95)' AS geometry);
 ```
+```
+PostgreSQL specific syntax
+SELECT '121'::integer;
+SELECT 121::text;
+SELECT 'SRID=4326;POINT(-75.16 39.95)'::geometry;
+```
+---
+
+## Working with `date` data
+
+- Some of you may have run into problems reading the date columns in last week's exercises
+- Dates are ambiguous (e.g. `6/10/2016`)
+- It helps to be explicit when casting from `text` to `date`
+**Converting `text` to `date`**
+Try the following SQL:
+```sql
+SELECT '6/10/2016'::date;
+
+Depending on what language/region your computer is configured for, this may:
+* Give the date value June 10, 2016
+* Give the date value October 6, 2016
+* Result in an error
+```
+
+
 
