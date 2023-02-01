@@ -146,6 +146,15 @@ SELECT name,
 FROM nomnom;
 
 ```
+
+**Qeury Spatial data**
+```
+SELECT * FROM indego_station_statuses
+WHERE ST_Y(the_geog::geometry) > 39.95221848137947
+ORDER BY ST_Y(the_geog::geometry);
+```
+
+
 ## 3. AGGREGATE [cheatsheet](https://www.codecademy.com/learn/learn-sql/modules/learn-sql-aggregate-functions/cheatsheet)
 
 1. **COUNT()**: count the number of rows
