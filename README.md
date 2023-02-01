@@ -366,7 +366,7 @@ ALTER COLUMN my_date TYPE date
 
 ## Spatial data types
 
-**Use `geography`**
+### Use `geography`
 
 The PostGIS extension to PostgreSQL adds two data types:
 - `geometry` : fast
@@ -416,7 +416,29 @@ FROM septa.bus_stops;
 - `ST_Intersection`
 - `ST_Union`
 
-<!-- When you have a static value (like the location of Meyerson Hall) it may be easiest to use ST_GeomFromText. When you have a table of latitudes and longitudes, like the Indego trip history, ST_MakePoint may be best. -->
+**Accessors : Getting components of spatial values**
+
+- `ST_X`
+- `ST_Y`
+- `ST_Endpoint`
+- `ST_Centroid`
+
+**Predicates: Determine whether relationships between geometries are true or false**
+
+- `ST_Contains`
+- `ST_Intersects`
+- `ST_Disjoint`
+- `ST_Equals`
+- **`ST_DWithin`**
 
 
+**Measures: Compute measurements with respect to one or more geometries**
 
+- `ST_Angle`
+- `ST_Area`
+- `ST_Azimuth`
+- `ST_Perimiter`
+- `ST_Distance`
+
+## Joins
+https://docs.google.com/presentation/d/1cygMG2NvRY6jalYG8rNPv6s8IqSVxEvii1cmhGKXDLU/edit?usp=sharing
