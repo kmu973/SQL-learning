@@ -245,7 +245,7 @@ dbWriteTable(con,
     value = df, row.names = FALSE)
 ```
 
-## 2. Loading Spatial data Files
+## 3. Loading Spatial data Files
 
 - **ogr2ogr**
 (https://gdal.org/programs/ogr2ogr.html)
@@ -290,4 +290,19 @@ df.to_postgis(
     index=False,
 )
 ```
-- **R**
+---
+
+# Data types, Aggregations, Geospatial Operations, and Joins
+
+---
+
+**cast** (_v._) - Convert a value from one data type to another.
+
+```sql
+SELECT CAST('121' AS integer);
+
+SELECT CAST(121 AS text);
+
+SELECT CAST('SRID=4326;POINT(-75.16 39.95)' AS geometry);
+```
+
