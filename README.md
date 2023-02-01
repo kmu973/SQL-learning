@@ -366,6 +366,8 @@ ALTER COLUMN my_date TYPE date
 
 ## Spatial data types
 
+**Use `geography`**
+
 The PostGIS extension to PostgreSQL adds two data types:
 - `geometry` : fast
 - `geography` : slow
@@ -373,11 +375,48 @@ The PostGIS extension to PostgreSQL adds two data types:
 **The PostGIS documentation [recommends](http://postgis.net/workshops/postgis-intro/geography.html#why-not-use-geography):**
 - If your data is geographically compact, use the `geometry` type with an [appropriate projection](http://epsg.io).
 - If you need to measure distance with a dataset that is geographically dispersed, use the `geography` type.
+```
+SELECT st_transform('SRID=4326;POINT(-75.16 39.95)'::geometry, 32129)::geography;
+result in error because geograpy only works with SRID=4326
 
-<div style="text-align: center">
+SELECT 'SRID=4326;POINT(-75.16 39.95)'::geography;
+this works
+```
 
-<div style="font-size: 2em">
-**Use `geography`**
+---
+
+## Spatial Operations
+https://postgis.net/docs/PostGIS_Special_Functions_Index.html#PostGIS_SQLMM_Functions
+
+
+**Constructors: Create spatial data values**
+
+- Casting from text to geometry/geography
+  [Well-known Text](https://en.wikipedia.org/wiki/Well-known_text_representation_of_geometry)
+- Functions
+  - `ST_GeomFromText`, `ST_GeomFromGeoJSON`
+  - `ST_MakePoint`, `ST_MakeLine`, etc. (e.g., on a table with only lat and lng)
+
+```
+SELECT ST_GeomFromText('SRID=4326;POINT(-75.16 39.95)');
+SELECT ST_GeomFromGeoJSON('{"type": "Point", "coordinates": [-75.16, 39.95]}')
+SELECT ST_SetSRID(ST_MakePoint(-75.16, 39.95), 4326);
+SELECT ST_MakePoint(-75.16, 39.95)::geography;
+
+SELECT *, ST_MakePoint(stop_lon, stop_lat)::geography AS stop_geog
+FROM septa.bus_stops;
+```
+
+**Transformers : Generate new geometries from the input of one or more other geometries**
+
+- `ST_Buffer`
+- `ST_ClosestPoint`
+- `ST_ConvexHull`
+- `ST_Difference`
+- `ST_Intersection`
+- `ST_Union`
+
+<!-- When you have a static value (like the location of Meyerson Hall) it may be easiest to use ST_GeomFromText. When you have a table of latitudes and longitudes, like the Indego trip history, ST_MakePoint may be best. -->
 
 
 
