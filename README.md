@@ -339,7 +339,7 @@ SELECT 'SRID=4326;POINT(-75.16 39.95)'::geometry;
 - Some of you may have run into problems reading the date columns in last week's exercises
 - Dates are ambiguous (e.g. `6/10/2016`)
 - It helps to be explicit when casting from `text` to `date`
-- 
+
 **Converting `text` to `date`**
 
 ```sql
