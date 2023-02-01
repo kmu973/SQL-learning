@@ -339,8 +339,9 @@ SELECT 'SRID=4326;POINT(-75.16 39.95)'::geometry;
 - Some of you may have run into problems reading the date columns in last week's exercises
 - Dates are ambiguous (e.g. `6/10/2016`)
 - It helps to be explicit when casting from `text` to `date`
+- 
 **Converting `text` to `date`**
-Try the following SQL:
+
 ```sql
 SELECT '6/10/2016'::date;
 
@@ -348,7 +349,20 @@ Depending on what language/region your computer is configured for, this may:
 * Give the date value June 10, 2016
 * Give the date value October 6, 2016
 * Result in an error
+
+SHOW DateStyle;
+
+My setting is `ISO,MDY`. That's not right or wrong, it's just what's expected in a computer set to a US/English region and language.
+`ISO` refers to [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) -- i.e. **`YYYY-MM-DD`**. Pretty much any DB will accept this. The other value (e.g. `MDY`) is specific to the "locale" (the region and language).
+
+SELECT to_date('6/10/2016', 'DD/MM/YYYY');
+
+ALTER TABLE my_table
+ALTER COLUMN my_date TYPE date
+    USING to_date(my_date, 'DD/MM/YYYY');
+
 ```
+
 
 
 
