@@ -362,7 +362,22 @@ ALTER COLUMN my_date TYPE date
     USING to_date(my_date, 'DD/MM/YYYY');
 
 ```
+---
 
+## Spatial data types
+
+The PostGIS extension to PostgreSQL adds two data types:
+- `geometry` : fast
+- `geography` : slow
+
+**The PostGIS documentation [recommends](http://postgis.net/workshops/postgis-intro/geography.html#why-not-use-geography):**
+- If your data is geographically compact, use the `geometry` type with an [appropriate projection](http://epsg.io).
+- If you need to measure distance with a dataset that is geographically dispersed, use the `geography` type.
+
+<div style="text-align: center">
+
+<div style="font-size: 2em">
+**Use `geography`**
 
 
 
