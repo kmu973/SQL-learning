@@ -440,5 +440,19 @@ FROM septa.bus_stops;
 - `ST_Perimiter`
 - `ST_Distance`
 
+---
 ## Joins
 https://docs.google.com/presentation/d/1cygMG2NvRY6jalYG8rNPv6s8IqSVxEvii1cmhGKXDLU/edit?usp=sharing
+---
+
+# A few tips for writing queries
+
+```
+1. Tip 1: Each entity should have a unique identifier
+2. Tip 2: Be consistent in your style
+3. Tip 3: Use common table expressions(CTEs) to keep your queries readable
+```
+
+# Query Exercise [link](https://github.com/kmu973/course-info/blob/main/week03/ex_1_station_density.md)
+
+
