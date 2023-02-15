@@ -114,9 +114,7 @@ OPTIONS (
   format = 'JSON',
   max_bad_records = 0
 )
-
---- 
-
+-----------------------------------------------------
 SELECT * FROM `min_data_lake.phl_opa_properties`
 limit 100
 ```
