@@ -46,12 +46,21 @@ Cloud infrastructure providers generally bill on three dimensions:
 
 ----
 
+## BigQuery 
+
+#### 1. Download the OPA Properties dataset (GeoJson)
+(https://opendataphilly.org/dataset/opa-property-assessments)
+
+#### 2. Convert the OPA Properties dataset to JSON-L
+GeoJson to JSON file
+
+- python
 ```python
 
 import json
 
 # Load the data from the GeoJSON file
-with open('opa_properties.geojson') as f:
+with open('opa_properties.geojson', encoding='utf-8') as f:
     data = json.load(f)
 
 # Write the data to a JSONL file
@@ -61,4 +70,64 @@ with open('opa_properties.jsonl', 'w') as f:
         row['geog'] = json.dumps(feature['geometry'])
         f.write(json.dumps(row) + '\n')
         
+```
+- javascript
+```javascript
+import fs from 'node:fs';
+
+// Load the data from the GeoJSON file
+const data = JSON.parse(
+  fs.readFileSync('opa_properties.geojson'));
+
+// Write the data to a JSONL file
+const f = fs.createWriteStream('opa_properties.jsonl');
+for (const feature of data.features) {
+  const row = feature.properties;
+  row.geog = JSON.stringify(feature.geometry);
+  f.write(JSON.stringify(row) + '\n');
+}
+```
+
+#### 3. Upload the resulting JSONL file to Google Cloud Storage
+
+- Log in to the **Google Cloud Console** (https://console.cloud.google.com)
+- Find the **Google Cloud Storage** service
+- Create a new bucket in Google Cloud Storage (maybe call it `data_lake`)
+- Create a new folder in the bucket (maybe call it `phl_opa_properties`)
+- Upload the JSONL file to the folder
+
+#### 4. Create a new dataset in BigQuery
+
+- Navigare to the **BigQuery** service
+- Create a new dataset in BigQuery (maybe call it `data_lake`)
+- Also create a new dataset in Carto (maybe call it `phl`; we'll use this later)
+
+#### 5. Create the external table
+
+https://cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language#create_external_table_statement
+
+```sql
+CREATE OR REPLACE EXTERNAL TABLE `min_data_lake.phl_opa_properties`
+OPTIONS (
+  description = 'Philadelphia OPA Properties - Raw Data',
+  uris = ['gs://min_data_lake/phl_opa_properties/*.jsonl'],
+  format = 'JSON',
+  max_bad_records = 0
+)
+
+--- 
+
+SELECT * FROM `min_data_lake.phl_opa_properties`
+limit 100
+```
+
+#### 6. Create a native table from the external table
+
+```sql
+CREATE OR REPLACE TABLE `phl.opa_properties`
+CLUSTER BY (geog)
+AS (
+  SELECT * EXCLUDE (geog), ST_GEOFROMGEOJSON(geog) AS geog
+  FROM `data_lake.phl_opa_properties`
+)
 ```
