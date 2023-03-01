@@ -1,12 +1,12 @@
 # Data Pipelines
 ---
 
-## 1. Extracting (≒ Downloading)
+## 1-1. Extracting (≒ Downloading)
   - Downloading data over HTTP
   - Working with geospatial file formats
   - Working with other file formats (like zip)
  
- #### python
+ ### python
  ```bash
 mkdir -p ~/code/week06
 cd ~/code/week06
@@ -16,7 +16,7 @@ python3 -m venv env
 source env/bin/activate
 ```
 
- #### node.js
+ ### node.js
 
 ```bash
 mkdir -p ~/code/week06
@@ -41,3 +41,33 @@ https.get(url, (response) => {
 
 
 ```
+
+---
+
+## 1-2. More Extracting (Et of EtLT)
+
+### Extract > transform
+
+- Downlaod data from web and convert to a format that can be loaded into BigQuery (JSON-L, CSV)
+
+### files / streams / buffers
+
+-python: file-like object: csv.reader, json.load, zipfile.ZipFile
+-Node.js: fs.createReadStream, fs.createWriteStream
+
+### Common libraries
+
+-python: urllib.urlopen, requests, csv, zipfile, fiona&pyproj (built on GDAL)
+```python
+pip install requests fiona pyproj
+pip freeze > requirements.txt
+```
+-Node.js: https.get, node-fetch, csv, adm-zip, gdal-async
+```javascript
+npm install --save \
+node-fetch csv adm-zip gdal-async
+```
+
+
+
+
