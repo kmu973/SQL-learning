@@ -68,11 +68,43 @@ await processedBlob.save(outContent, {resumable:false});
 
 ```
 
-#Google cloud function
+# Google cloud function
+
 https://github.com/GoogleCloudPlatform/functions-framework-nodejs
+
 ```node
 npm install @google-cloud/functions-framework --save
 ```
 
-
 ![image](https://user-images.githubusercontent.com/70645899/225385718-6bb4f90b-6cf7-47d7-ba68-44e123547f06.png)
+
+
+![image](https://user-images.githubusercontent.com/70645899/225388760-9ba2b3b7-4f15-49f1-b6da-650276adf523.png)
+
+
+```node 
+import fetch from 'node-fetch';
+import storage from '@google-cloud/storage';
+import functions from '@google-cloud/functions-framework';
+
+
+
+functions.http('extract_data', async (req, res) => {
+  const client = new storage.Storage(
+  {keyFilename: './keys/musa-coursework-8ce8259d04b6.json'}
+ );
+ const bucket = client.bucket('min_musa_509_raw_data')
+ 
+ const url = 'https://api.census.gov/data/2020/dec/pl?get=NAME,GEO_ID,P1_001N&for=block%20group:*&in=state:42%20county:*';
+ const resp = await fetch(url);
+ const data = await resp.json();
+ 
+ const jsonData = JSON.stringify(data);
+ const blob = bucket.file('census/census_population_2020.json');
+ await blob.save(jsonData, {resumable:false});
+ 
+ res.status(200).send('OK')
+
+});
+
+```
