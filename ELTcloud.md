@@ -9,6 +9,7 @@ instead of saving raw-data in local folder, let's extract and save data in cloud
 6. npm i dotenv / dotenv-cli (?)
 7. extract data and put this into raw bucket
 8. load raw data from bucket and process it into csv
+9. turn local scripts (extract_census, prepare_census) into google cloud function 
 
 ```
 
@@ -45,7 +46,7 @@ const blob = bucket.file('census/census_population_2020.json');
 await blob.save(jsonData, {resumable:false});
 ```
 
-```
+```node
 import * as csv from 'csv/sync';
 import storage from '@google-cloud/storage'
 
@@ -66,3 +67,12 @@ const processedBlob = processedBucket.file('census_population_2020/data.csv');
 await processedBlob.save(outContent, {resumable:false});
 
 ```
+
+#Google cloud function
+https://github.com/GoogleCloudPlatform/functions-framework-nodejs
+```node
+npm install @google-cloud/functions-framework --save
+```
+
+
+![image](https://user-images.githubusercontent.com/70645899/225385718-6bb4f90b-6cf7-47d7-ba68-44e123547f06.png)
