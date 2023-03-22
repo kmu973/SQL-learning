@@ -14,18 +14,22 @@ instead of saving raw-data in local folder, let's extract and save data in cloud
 ```
 
 # IAM
-![image](https://user-images.githubusercontent.com/70645899/225352644-26b88bc9-cd9c-4ef9-8355-157aed58eac0.png)
-![image](https://user-images.githubusercontent.com/70645899/225353450-f57ab602-564f-4051-bf9f-b7aa63d6a2a9.png)
+
+<img src="https://user-images.githubusercontent.com/70645899/225352644-26b88bc9-cd9c-4ef9-8355-157aed58eac0.png" width="500">
+<img src="https://user-images.githubusercontent.com/70645899/225353450-f57ab602-564f-4051-bf9f-b7aa63d6a2a9.png" width="500">
+
 
 
 # Google cloud storage client libraries
-![image](https://user-images.githubusercontent.com/70645899/225355281-06f64722-f80f-4e6f-be88-2b021a30b2f1.png)
-![image](https://user-images.githubusercontent.com/70645899/225355420-5ff7fbbb-a05b-43d6-bbb2-9e359187b44c.png)
+
+<img src="https://user-images.githubusercontent.com/70645899/225355281-06f64722-f80f-4e6f-be88-2b021a30b2f1.png" width="500">
+<img src="https://user-images.githubusercontent.com/70645899/225355420-5ff7fbbb-a05b-43d6-bbb2-9e359187b44c.png" width="500">
 
 
 # Set up authentification
 **add keys to .gitignore**
-![image](https://user-images.githubusercontent.com/70645899/225357210-0a29764f-498d-45b7-aa39-62210e744457.png)
+<img src="https://user-images.githubusercontent.com/70645899/225357210-0a29764f-498d-45b7-aa39-62210e744457.png" width="200">
+
 
 # Code
 ```node
@@ -75,12 +79,8 @@ https://github.com/GoogleCloudPlatform/functions-framework-nodejs
 ```node
 npm install @google-cloud/functions-framework --save
 ```
-
-![image](https://user-images.githubusercontent.com/70645899/225385718-6bb4f90b-6cf7-47d7-ba68-44e123547f06.png)
-
-
-![image](https://user-images.githubusercontent.com/70645899/225388760-9ba2b3b7-4f15-49f1-b6da-650276adf523.png)
-
+<img src="https://user-images.githubusercontent.com/70645899/225385718-6bb4f90b-6cf7-47d7-ba68-44e123547f06.png" width="500">
+<img src="https://user-images.githubusercontent.com/70645899/225388760-9ba2b3b7-4f15-49f1-b6da-650276adf523.png" width="500">
 
 ```node 
 import fetch from 'node-fetch';
@@ -108,3 +108,26 @@ functions.http('extract_data', async (req, res) => {
 });
 
 ```
+
+-------
+
+# Deploying cloud
+
+<img src="https://user-images.githubusercontent.com/70645899/226938025-63bfad09-8a83-4f83-a9cc-b61f7388e75d.png" width="300">
+
+- estimate cost (https://cloud.google.com/products/calculator)
+- free tier (https://cloud.google.com/free/docs/free-cloud-features)
+- billing setting (https://console.cloud.google.com/billing)
+
+```gcloud
+
+gcloud functions deploy extract-census `
+  --region us-central1 `
+  --runtime nodejs18 `
+  --trigger-http `
+  --source src/extract_census `
+  --entry-point extract_data `
+  --service-account <service-account>
+
+```
+
