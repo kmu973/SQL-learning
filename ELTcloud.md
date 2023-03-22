@@ -131,3 +131,38 @@ gcloud functions deploy extract-census `
 
 ```
 
+-test function https://console.cloud.google.com/functions/list
+
+# Create workflow
+
+- https://console.cloud.google.com/workflows
+- https://cloud.google.com/workflows/docs/reference/stdlib/overview
+- trigger url
+
+```
+main:
+    steps:
+    - extract:
+        call: http.post
+        args:
+            url: https://us-central1-musa-coursework.cloudfunctions.net/extract-census
+            auth: 
+                type: OIDC
+    - prepare:
+        call: http.post
+        args:
+            url: https://us-central1-musa-coursework.cloudfunctions.net/extract-census
+            auth:
+                tyep: OIDC
+```
+Settup service account
+```
+gcloud projects add-iam-policy-binding \
+  <PROJECT_ID> \
+  --member serviceAccount:<EMAIL> \
+  --role roles/cloudfunctions.invoker
+
+>>vscode powershell
+gcloud projects add-iam-policy-binding "musa-coursework" --member "serviceAccount:data-pipeline-user@musa-coursework.iam.gserviceaccount.com" --role "roles/cloudfunctions.invoker"
+
+```
